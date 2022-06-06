@@ -29,20 +29,18 @@ function sum(
 sum('Numbers', 1, 6, 10);
 
 const executeFunc = (
-  func: any
-): string | number | string[] => {
-  const title: string = 'Lorem Ipsum';
-  const age: number = 24;
-  const hobby: string[] = ['Sport', 'Movies'];
-  return func(title, age, hobby);
-};
-
-executeFunc(
-  (
+  func: (
     title: string,
     age: number,
-    hobbies: string
-  ) => {
-    return true;
-  }
-);
+    hobbies: string[]
+  ) => boolean
+) => {
+  const title = 'Lorem Ipsum';
+  const age = 24;
+  const hobbies = ['Sport', 'Movies'];
+  return func(title, age, hobbies);
+};
+
+executeFunc((title, age, hobbies) => {
+  return true;
+});
